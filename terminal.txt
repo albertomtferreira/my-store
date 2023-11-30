@@ -1,3 +1,6 @@
 npx create-react-app my-store
 
 yarn add sass
+
+yarn add react-router-dom@6
+

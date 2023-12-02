@@ -1,6 +1,7 @@
 import {Routes, Route} from 'react-router-dom';
 import Home from './routes/home/home.component';
 import Navigation from './routes/navigation/navigation.component';
+import SignIn from './routes/sign-in/sign-in.component';
 
 const Shop =()=>{
   return[
@@ -12,11 +13,7 @@ const Contact =()=>{
     <h1>I am the Contact page</h1>
   ]
 }
-const SignIn =()=>{
-  return[
-    <h1>I am the SignIn page</h1>
-  ]
-}
+
 
 const App= () => {
   return [

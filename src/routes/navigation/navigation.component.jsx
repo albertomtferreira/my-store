@@ -5,7 +5,7 @@ import './navigation.styles.scss';
 
 const Navigation =()=>{
   return[
-    <Fragment>
+    <Fragment key='navigation-component'>
       <div className='navigation'>
         <Link className='logo-container' to='/'>
           <CrwnLogo className='logo'/>

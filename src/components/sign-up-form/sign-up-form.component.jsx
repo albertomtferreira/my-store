@@ -1,14 +1,11 @@
 import { useState } from 'react';
-
-// import FormInput from '../form-input/form-input.component';
-// import Button from '../button/button.component';
-
+import Button from '../button/button.component';
+import FormInput from '../form-input/form-input.component';
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
 } from '../../utils/firebase/firebase.utils';
-
-// import './sign-up-form.styles.scss';
+import './sign-up-form.styles.scss';
 
 const defaultFormFields = {
   displayName: '',
@@ -57,45 +54,46 @@ const SignUpForm = () => {
 
 
   return[
-    <div key={'signup-form'}>
-      <h1>Sign Up wiht email and pass</h1>
+    <div key={'signup-form'} className='sign-up-container'>
+      <h2>Don't have an account?</h2>
+      <span>Sign Up wiht email and pass</span>
         <form onSubmit={handleSubmit}>
-          <label htmlFor='displayName'>Display Name</label>
-          <input
+          <FormInput
             required
+            label='Display Name'
             type="text"
             onChange={handleChange}
             name='displayName'
             value={displayName}
           />
-          <label htmlFor='email'>Email</label>
-          <input
+          <FormInput
             required
+            label='Email'
             type="email"
             onChange={handleChange}
             name='email'
             value={email}
             autoComplete="email"
           />
-          <label htmlFor='password'>Password</label>
-          <input
+          <FormInput
             required
+            label='Password'
             type="password"
             onChange={handleChange}
             name='password'
             value={password}
             autoComplete="new-password"
           />
-          <label htmlFor='confirmPassword'>Confirm Password</label>
-          <input
+          <FormInput
             required
+            label='Confirm Password'
             type="password"
             onChange={handleChange}
             name='confirmPassword'
             value={confirmPassword}
             autoComplete="new-password"
           />
-          <button type="submit">Sign Up</button>
+          <Button buttonType='default' type="submit">Sign Up</Button>
         </form>
       
     </div>

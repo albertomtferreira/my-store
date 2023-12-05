@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import Button from '../button/button.component';
 import FormInput from '../form-input/form-input.component';
+import { UserContext } from '../../contexts/user.context';
 import {
   signInWithGooglePopup,
   createUserDocumentFromAuth,
@@ -16,6 +17,7 @@ const defaultFormFields = {
 const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
+  const {setCurrentUser} = useContext(UserContext)
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
@@ -29,8 +31,8 @@ const SignInForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await signInAuthWithUserWithEmailAndPassword(email, password)
-      console.log(response);
+      const {user} = await signInAuthWithUserWithEmailAndPassword(email, password)
+      setCurrentUser(user);
       resetFormFields();
     } catch (error) {
       if (error.code === "auth/invalid-credential"){
@@ -72,7 +74,7 @@ const SignInForm = () => {
             autoComplete="new-password"
           />
           <div className='buttons-container'>
-            <Button buttonType='default' type="submit">Sign Up</Button>
+            <Button buttonType='default' type="submit">Sign In</Button>
             <Button buttonType='google' type='button' onClick={signinWithGoogle}>Google Sign In</Button>
           </div>
           

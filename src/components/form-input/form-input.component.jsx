@@ -1,23 +1,17 @@
-import './form-input.styles.scss';
+//Sign In and Sign Up form input
+import { FormInputLabel, Input, Group } from './form-input.styles';
 
-const FormInput = ({label, ...otherProps}) => {
-  return[
-    <div key='FormInput' className="group">
-      <input className="form-input" {...otherProps}/>
-      {label &&(
-      <label 
-        htmlFor='displayName'
-        className={`${
-          otherProps.value.length ? 'shrink' : ''
-        } form-input-label`}
-      >
-        {label}
-      </label>
+const FormInput = ({ label, ...otherProps }) => {
+  return (
+    <Group>
+      <Input {...otherProps} />
+      {label && (
+        <FormInputLabel shrink={otherProps.value.length}>
+          {label}
+        </FormInputLabel>
       )}
-    </div>
-  ]
-}
+    </Group>
+  );
+};
 
 export default FormInput;
-
-

@@ -1,7 +1,9 @@
 npx create-react-app my-store
 
-yarn add sass
+npm install sass
 
-yarn add react-router-dom@6
+npm install react-router-dom@6
 
-yarn add firebase
+npm install firebase
+
+npm install styled-components

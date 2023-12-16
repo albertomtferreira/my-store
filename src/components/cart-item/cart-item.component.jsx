@@ -1,18 +1,18 @@
-import './cart-item.styles.scss';
+//Inside dropdown basket
+
+import {CartItemContainer, ItemDetails} from './cart-item.styles.jsx';
 
 const CartItem = ({cartItem}) => {
   const {name, imageUrl, price, quantity} = cartItem;
   return[
-    <div key='cart-item-component' className='cart-item-container'>
+    <CartItemContainer key='CartItemContainer'>
       <img src={imageUrl} alt={`${name}`} className='img'/>
-      <div className='item-details'>
-        <span className='name'>{name}</span>
-        <span className='price'>{quantity} x ${price}</span>
-      </div>
-     
-    </div>
+      <ItemDetails>
+        <span>{name}</span>
+        <span>{quantity} x ${price}</span>
+      </ItemDetails>
+    </CartItemContainer>
   ]
-
 }
 
 export default CartItem

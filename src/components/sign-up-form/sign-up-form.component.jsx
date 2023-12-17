@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import Button from '../button/button.component';
+import Button, {BUTTON_TYPE_CLASSES} from '../button/button.component';
 import FormInput from '../form-input/form-input.component';
 
 import {
@@ -97,7 +97,7 @@ const SignUpForm = () => {
             value={confirmPassword}
             autoComplete="new-password"
           />
-          <Button buttonType='default' type="submit">Sign Up</Button>
+          <Button buttonType={BUTTON_TYPE_CLASSES.default} type="submit">Sign Up</Button>
         </form>
     </SignUpContainer>
   ]

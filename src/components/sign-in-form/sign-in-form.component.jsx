@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import Button from '../button/button.component';
+import Button, {BUTTON_TYPE_CLASSES} from '../button/button.component';
 import FormInput from '../form-input/form-input.component';
 
 import {
@@ -9,7 +9,7 @@ import {
   signInAuthUserWithEmailAndPassword,
 } from '../../utils/firebase/firebase.utils';
 
-import {SignInContainer} from './sign-in-form.styles.jsx';
+import {SignInContainer,ButtonsContainer} from './sign-in-form.styles.jsx';
 
 const defaultFormFields = {
   email: '',
@@ -70,10 +70,10 @@ const SignInForm = () => {
             value={password}
             autoComplete='new-password'
           />
-          <div className='buttons-container'>
-            <Button buttonType='default' type='submit'>Sign In</Button>
-            <Button buttonType='google' type='button' onClick={signinWithGoogle}>Google Sign In</Button>
-          </div>
+          <ButtonsContainer>
+            <Button buttonType={BUTTON_TYPE_CLASSES.default} type='submit'>Sign In</Button>
+            <Button buttonType={BUTTON_TYPE_CLASSES.google} type='button' onClick={signinWithGoogle}>Google Sign In</Button>
+          </ButtonsContainer>
         </form>
     </SignInContainer>
   ]

@@ -1,5 +1,5 @@
 import {initializeApp} from 'firebase/app';
-// import { getAnalytics } from "firebase/analytics";
+import { getAnalytics, logEvent } from "firebase/analytics";
 import { 
   getAuth,
   signInWithPopup,
@@ -37,7 +37,8 @@ const firebaseConfig = {
 // Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig);
 
-// const analytics = getAnalytics(firebaseApp);
+const analytics = getAnalytics(firebaseApp);
+logEvent(analytics, 'notification_received');
 
 
 //GOOGLE PROVIDER UTILS

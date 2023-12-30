@@ -9,3 +9,5 @@ npm install firebase
 npm install styled-components
 
 npm install redux react-redux redux-logger
+
+npm install reselect

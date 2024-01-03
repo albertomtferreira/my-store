@@ -9,7 +9,7 @@ import logger from "redux-logger";
 
 //middlewares
 
-const middlewares = [logger]
+const middlewares = [process.env.NODE_ENV === 'development' && logger].filter(Boolean);
 const composedEnhancers = compose(applyMiddleware(...middlewares))
 
 //Persist config

@@ -11,3 +11,5 @@ npm install styled-components
 npm install redux react-redux redux-logger
 
 npm install reselect
+
+npm install redux-persist

@@ -8,8 +8,11 @@ npm install firebase
 
 npm install styled-components
 
+---- install on desktop pc ----
 npm install redux react-redux redux-logger
 
 npm install reselect
 
 npm install redux-persist
+
+npm install redux-thunk

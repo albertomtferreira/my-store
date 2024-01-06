@@ -16,3 +16,5 @@ npm install reselect
 npm install redux-persist
 
 npm install redux-thunk
+
+npm install redux-saga

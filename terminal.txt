@@ -11,10 +11,4 @@ npm install styled-components
 ---- install on desktop pc ----
 npm install redux react-redux redux-logger
 
-npm install reselect
-
-npm install redux-persist
-
-npm install redux-thunk
-
-npm install redux-saga
+npm install reselect redux-persist redux-thunk redux-saga

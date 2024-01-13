@@ -15,7 +15,9 @@ export const signInSuccess = (user) => createAction(USER_ACTION_TYPES.SIGN_IN_SU
 
 export const signInFailed = (error) => createAction(USER_ACTION_TYPES.SIGN_IN_FAILED, error);
 
-export const signUpStart = (email, password, displayName) => createAction(USER_ACTION_TYPES.SIGN_UP_START, {email, password, displayName})
+// (E) 👇🏻👇🏻 add the new data field
+export const signUpStart = (email, password, displayName, phoneNumber) => 
+  createAction(USER_ACTION_TYPES.SIGN_UP_START, {email, password, displayName, phoneNumber})
 
 export const signUpSuccess = (user, additionalDetails) => createAction(USER_ACTION_TYPES.SIGN_UP_SUCCESS, {user, additionalDetails})
 

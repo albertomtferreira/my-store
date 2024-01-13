@@ -78,15 +78,15 @@ export const createUserDocumentFromAuth = async (
   const userDocRef = doc(db, 'users', userAuth.uid);
 
   const userSnapshot = await getDoc(userDocRef);
-
+// (G) 👇🏻👇🏻 destructure the new data field and pass it to setDoc
   if (!userSnapshot.exists()) {
-    const { displayName, email } = userAuth;
+    const { displayName, email, phoneNumber } = userAuth;
     const createdAt = new Date();
-
     try {
       await setDoc(userDocRef, {
         displayName,
         email,
+        phoneNumber,
         createdAt,
         ...additionalInformation,
       });

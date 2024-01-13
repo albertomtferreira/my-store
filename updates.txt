@@ -1,0 +1,16 @@
+How to add new fields on sign up
+
+sign-up-component.jsx
+	add to defaultFormFields (A)
+	add to destructure (B)
+	add to dispatch (C)
+	add to form (D)
+
+user.actions.js
+	add to signUpStart (E)
+
+user.saga.js
+	add to signUp (F)
+
+firebase.utils.js
+	add to createUserDocumentFromAuth

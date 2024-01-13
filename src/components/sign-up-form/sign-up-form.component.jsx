@@ -8,17 +8,20 @@ import { signUpStart } from '../../store/user/user.action.js';
 
 import {SignUpContainer} from './sign-up-form.styles.jsx';
 
+// (A) 👇🏻👇🏻 defining default form field values for a sign up form component
 const defaultFormFields = {
   displayName: '',
   email: '',
   password: '',
   confirmPassword: '',
+  phoneNumber:'',
 };
 
 const SignUpForm = () => {
   const dispatch = useDispatch()
   const [formFields, setFormFields] = useState(defaultFormFields);
-  const { displayName, email, password, confirmPassword } = formFields;
+  // (B) 👇🏻👇🏻 destructuring form fields from the formFields state variable
+  const { displayName, email, password, confirmPassword, phoneNumber } = formFields;
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
@@ -32,7 +35,8 @@ const SignUpForm = () => {
       return;
     }
     try {
-      dispatch(signUpStart(email, password, displayName))
+      // (C) 👇🏻👇🏻 dispatch the fields
+      dispatch(signUpStart(email, password, displayName, phoneNumber))
       resetFormFields();
     } catch (error) {
       if (error.code === 'auth/email-already-in-use') {
@@ -54,6 +58,7 @@ const SignUpForm = () => {
     <SignUpContainer key='SignUpContainer'>
       <h2>Don't have an account?</h2>
       <span>Sign Up wiht email and pass</span>
+        {/*  (D) 👇🏻👇🏻 defining the form fields for the sign up form */}
         <form onSubmit={handleSubmit}>
           <FormInput
             required
@@ -71,6 +76,14 @@ const SignUpForm = () => {
             name='email'
             value={email}
             autoComplete="email"
+          />
+          <FormInput
+            required
+            label='Phone Number'
+            type="text"
+            onChange={handleChange}
+            name='phoneNumber'
+            value={phoneNumber}
           />
           <FormInput
             required

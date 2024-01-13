@@ -52,11 +52,14 @@ export function* isUserAuthenticated(){
     yield put(signInFailed(error))
   }
 }
-
-export function* signUp({payload: {email, password, displayName}}){
+// (F) 👇🏻👇🏻 add the new data field to the payload and pass it to signUpSuccess
+export function* signUp({payload: {email, password, displayName, phoneNumber}}){
   try{
     const {user} = yield call(createAuthUserWithEmailAndPassword, email, password)
-    yield put(signUpSuccess(user, {displayName}))
+    yield put(signUpSuccess(user, {
+      displayName,
+      phoneNumber,
+    }))
   }catch(error){
     yield put(signUpFailed(error))
   }

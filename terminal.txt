@@ -8,11 +8,20 @@ npm install firebase
 
 npm install styled-components
 
----- install on desktop pc ----
 npm install redux react-redux redux-logger
 
 npm install reselect redux-persist redux-thunk redux-saga
 
+---- install on desktop pc ----
+npm install @stripe/stripe-js
+npm install @stripe/react-stripe-js
+npm install stripe dotenv
+
+
+steps for netlify
+npm install -g netlify-cli
+netlify login
+netlify dev //to run the server
 
 https://aws.amazon.com/codewhisperer/resources/#Getting_started/
 

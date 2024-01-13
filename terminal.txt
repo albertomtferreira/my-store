@@ -12,3 +12,6 @@ npm install styled-components
 npm install redux react-redux redux-logger
 
 npm install reselect redux-persist redux-thunk redux-saga
+
+
+https://aws.amazon.com/codewhisperer/resources/#Getting_started/

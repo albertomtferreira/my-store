@@ -15,3 +15,5 @@ npm install reselect redux-persist redux-thunk redux-saga
 
 
 https://aws.amazon.com/codewhisperer/resources/#Getting_started/
+
+https://www.freecodecamp.org/news/how-to-build-a-ecommerce-website-using-next-js-and-planetscale/

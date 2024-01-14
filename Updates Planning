@@ -1,0 +1,11 @@
+Profile Update form
+    * create page to host Profile Update
+    * create function
+        will need to create something on
+            user.action.js
+            user.saga.js
+            user.types.js
+            firebase.utils.js
+
+Checkout icon
+    * Instead of click update to hover

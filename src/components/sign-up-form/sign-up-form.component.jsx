@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import Button, {BUTTON_TYPE_CLASSES} from '../button/button.component';
 import FormInput from '../form-input/form-input.component';
@@ -18,6 +19,8 @@ const defaultFormFields = {
 };
 
 const SignUpForm = () => {
+  const navigate = useNavigate()
+  const goToShopScreen = () => navigate('/shop')
   const dispatch = useDispatch()
   const [formFields, setFormFields] = useState(defaultFormFields);
   // (B) 👇🏻👇🏻 destructuring form fields from the formFields state variable
@@ -38,6 +41,7 @@ const SignUpForm = () => {
       // (C) 👇🏻👇🏻 dispatch the fields
       dispatch(signUpStart(email, password, displayName, phoneNumber))
       resetFormFields();
+      goToShopScreen()
     } catch (error) {
       if (error.code === 'auth/email-already-in-use') {
         alert('Cannot create user, email already in use');

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import Button, {BUTTON_TYPE_CLASSES} from '../button/button.component';
 import FormInput from '../form-input/form-input.component';
@@ -13,6 +14,8 @@ const defaultFormFields = {
 };
 
 const SignInForm = () => {
+  const navigate = useNavigate()
+  const goToShopScreen = () => navigate('/shop')
   const dispatch = useDispatch()
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
@@ -23,6 +26,7 @@ const SignInForm = () => {
 
   const signinWithGoogle =async ()=>{
     dispatch(googleSignInStart())
+    goToShopScreen();
   }
 
   const handleSubmit = async (event) => {
@@ -30,6 +34,7 @@ const SignInForm = () => {
     try {
       dispatch(emailSignInStart(email, password))
       resetFormFields();
+      goToShopScreen();
     } catch (error) {
       if (error.code === "auth/invalid-credential"){
         alert ('wrong credentials!')

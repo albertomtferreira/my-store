@@ -1,4 +1,4 @@
-How to add new fields on sign up
+## How to add new fields on sign up ##
 
 sign-up-component.jsx
 	add to defaultFormFields (A)
@@ -14,3 +14,5 @@ user.saga.js
 
 firebase.utils.js
 	add to createUserDocumentFromAuth
+
+## ##

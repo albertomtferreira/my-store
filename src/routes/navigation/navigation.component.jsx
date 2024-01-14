@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import CartIcon from '../../components/cart-icon/cart-icon.component';
 import CartDropdown from '../../components/cart-dropdown/cart-dropdown.component';
+import ProfileIconContainer from '../../components/profile-icon/profile-icon.component.jsx';
 
 import { selectIsCartOpen } from '../../store/cart/cart.selector.js';
 import { selectCurrentUser } from '../../store/user/user.selector.js';
@@ -32,12 +33,21 @@ const Navigation =()=>{
             CONTACT
           </NavLink>
           {currentUser ? 
-            (<NavLink as='span' onClick={signOutUser}>SIGN OUT</NavLink>)
+            (<NavLink as='span' onClick={signOutUser}>SIGN OUT</NavLink>  
+            )
             :
             (
               <NavLink to='/auth'>
                 SIGN IN
               </NavLink>
+            )
+          }
+          {currentUser ? 
+            (<ProfileIconContainer/>  
+            )
+            :
+            (
+              null
             )
           }
           <CartIcon/>

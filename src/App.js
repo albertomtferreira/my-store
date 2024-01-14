@@ -10,6 +10,7 @@ import Authentication from './routes/authentication/authentication.component';
 import Shop from './routes/shop/shop.component';
 import Contact from './routes/contact/contact.component';
 import Checkout from './routes/checkout/checkout.component';
+import Profile from './routes/profile/profile.component';
 
 const App= () => {
   const dispatch = useDispatch();
@@ -25,6 +26,7 @@ const App= () => {
         <Route path='/contact' element={<Contact/>}/>
         <Route path='/auth' element={<Authentication/>}/>
         <Route path='/checkout' element={<Checkout/>}/>
+        <Route path='/profile' element={<Profile/>}/>
       </Route>
     </Routes>
     

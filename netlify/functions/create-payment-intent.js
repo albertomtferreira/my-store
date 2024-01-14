@@ -22,16 +22,3 @@ exports.handler = async (event) => {
    }
    
 }
-
-// const { id } = JSON.parse(event.body);
-// const paymentIntent = await stripe.paymentIntents.create({
-//   amount: 1000,
-//   currency: "usd",
-//   description: "Software development services",
-//   payment_method: id,
-//   confirm: true,
-// });
-// return {
-//   statusCode: 200,
-//   body: JSON.stringify({ paymentIntent }),
-// };

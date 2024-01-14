@@ -12,10 +12,11 @@ npm install redux react-redux redux-logger
 
 npm install reselect redux-persist redux-thunk redux-saga
 
----- install on desktop pc ----
 npm install @stripe/stripe-js
-npm install @stripe/react-stripe-js
-npm install stripe dotenv
+npm install @stripe/react-stripe-js 
+npm install stripe 
+npm install dotenv
+
 
 
 steps for netlify

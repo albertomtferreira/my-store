@@ -1,8 +1,8 @@
 //Inside dropdown basket
-
+import { memo } from 'react';
 import {CartItemContainer, ItemDetails} from './cart-item.styles.jsx';
 
-const CartItem = ({cartItem}) => {
+const CartItem = memo(({cartItem}) => {
   const {name, imageUrl, price, quantity} = cartItem;
   return[
     <CartItemContainer key='CartItemContainer'>
@@ -13,6 +13,6 @@ const CartItem = ({cartItem}) => {
       </ItemDetails>
     </CartItemContainer>
   ]
-}
+})
 
 export default CartItem

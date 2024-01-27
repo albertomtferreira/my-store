@@ -30,6 +30,8 @@ export const DefaultButton = styled.button`
 export const GoogleSignInButton = styled(DefaultButton)`
   background-color: #4285f4;
   color: white;
+  text-align: center;
+  text-wrap: nowrap;
 
   &:hover {
     background-color: #6a9beb;

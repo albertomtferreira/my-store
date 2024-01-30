@@ -19,11 +19,23 @@ const PaymentForm = () => {
 	const [isProcessingPayment, setIsProcessingPayment] = useState(false)
 
 	const paymnentHandler = async (e) => {
+
 		e.preventDefault()
+
 		if (!stripe || !elements) {
 			return;
 		}
+
 		setIsProcessingPayment(true)
+
+		// Trigger form validation and wallet collection
+		const {error: submitError} = await elements.submit();
+		
+		if (submitError) {
+			console.log(submitError);
+			return;
+		}
+
 		const response = await fetch('/.netlify/functions/create-payment-intent', {
 			method: 'post',
 			headers: {
@@ -31,35 +43,32 @@ const PaymentForm = () => {
 			},
 			body: JSON.stringify({amount: amount*100})
 		}).then(res => res.json())
+		
+		
 		const clientSecret = response.paymentIntent.client_secret
-		const paymentResult = await stripe.confirmCardPayment(clientSecret, {
-			payment_method: {
-					card: elements.getElement(CardElement),
-					billing_details: {
-						name: currentUser	? currentUser.displayName : 'guest'
-					},
-					metadata: {
-						cartTotal: amount,
-						shippingAddress: '123 Main St',
-					}
-			}
-		})
-		setIsProcessingPayment(false)
-		if (paymentResult.error){
-			alert(paymentResult.error.message)
-		}	else {
-			if (paymentResult.paymentIntent.status === 'succeeded'){
-				alert('Payment Successful')
-			}	else {
-				alert('Payment Failed')
+		
+		const paymentResult = await stripe.confirmPayment({
+			elements,
+			clientSecret,
+			confirmParams:{
+				return_url: 'http://localhost:8888/checkout'
+			},
+			billing_details: {
+				name: currentUser	? currentUser.displayName : 'guest'
 			}
 		}
+		)
+		console.log("Payment Result: ",paymentResult)
+		setIsProcessingPayment(false)
+
+
 	}
+
 	return [
 		<PaymentFormContainer key={PaymentFormContainer}>
 			<FormContainer onSubmit={paymnentHandler}>
-				<h2>Credit Card Payment: </h2>
-				<CardElement />
+				<h2>Card Payment: </h2>
+				<PaymentElement />
 				<PaymentButton 
 					disabled={isProcessingPayment || !stripe}
 					isLoading={isProcessingPayment}

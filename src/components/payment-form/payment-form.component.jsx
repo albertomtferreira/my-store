@@ -5,7 +5,7 @@ import { selectCartTotal } from "../../store/cart/cart.selector";
 
 import { selectCurrentUser } from "../../store/user/user.selector";
 
-import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import { PaymentElement, CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 
 import { BUTTON_TYPE_CLASSES } from "../button/button.component";
 

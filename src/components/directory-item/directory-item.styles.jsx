@@ -36,10 +36,11 @@ export const Body = styled.div`
   @media screen and (max-width: 800px) {
     width: 100px;
     h2 {
-      font-size: 11px;
+      font-size: 15px;
     }
     p {
-      font-size: 8px;
+      font-size: 12px;
+      text-align: center;
     }
   }
 `;

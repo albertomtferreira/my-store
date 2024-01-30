@@ -36,7 +36,7 @@ const CheckoutItem = memo(({cartItem}) => {
         <Value>{quantity}</Value>
         <Arrow onClick={addItemHandler}>&#43;</Arrow>
       </Quantity>
-      <BaseSpan>${price}</BaseSpan>
+      <BaseSpan>£{price}</BaseSpan>
       <RemoveButton onClick={clearItemHandler}>&#10005;</RemoveButton>
     </CheckoutItemContainer>
 

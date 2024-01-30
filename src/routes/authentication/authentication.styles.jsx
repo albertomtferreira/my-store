@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const AuthenticationContainer = styled.div`
   display: flex;
   width: 900px;
-  justify-content:space-between;
+  justify-content: space-between;
   margin: 30px auto;
   @media (max-width: 900px) {
     display: flex;
@@ -19,4 +19,4 @@ export const AuthenticationContainer = styled.div`
   @media (max-width: 400px) {
     width: 110%;
   }
-`
+`;
